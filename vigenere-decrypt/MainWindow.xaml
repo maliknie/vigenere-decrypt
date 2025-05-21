@@ -1,0 +1,57 @@
+﻿<Window x:Class="vigenere_decrypt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Vigenère Decryptor" Height="500" Width="800">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- Key input -->
+            <RowDefinition Height="Auto"/> <!-- Ciphertext -->
+            <RowDefinition Height="Auto"/> <!-- Buttons -->
+            <RowDefinition Height="*"/>    <!-- Decrypted text -->
+        </Grid.RowDefinitions>
+
+        <!-- Key input -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Key:" VerticalAlignment="Center" Margin="0,0,10,0" FontWeight="Bold"/>
+            <TextBox x:Name="KeyBox" Width="300" FontSize="14"/>
+        </StackPanel>
+
+        <!-- Ciphertext input -->
+        <StackPanel Grid.Row="1" Margin="0,0,0,10">
+            <TextBlock Text="Ciphertext:" FontWeight="Bold" Margin="0,0,0,5"/>
+            <TextBox x:Name="CipherTextBox"
+                     AcceptsReturn="True"
+                     VerticalScrollBarVisibility="Auto"
+                     TextWrapping="Wrap"
+                     Height="100"
+                     FontFamily="Consolas"
+                     FontSize="14"/>
+        </StackPanel>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,10,0,10">
+            <Button Content="Decrypt"
+                    Width="100"
+                    Height="40"
+                    Margin="0,0,10,0"
+                    Click="Decrypt_Click"/>
+            <Button Content="Encrypt"
+                    Width="100"
+                    Height="40"
+                    Click="Encrypt_Click"/>
+        </StackPanel>
+
+        <!-- Decrypted/Encrypted output -->
+        <StackPanel Grid.Row="3">
+            <TextBlock Text="Output:" FontWeight="Bold" Margin="0,0,0,5"/>
+            <TextBox x:Name="PlainTextBox"
+                     AcceptsReturn="True"
+                     VerticalScrollBarVisibility="Auto"
+                     TextWrapping="Wrap"
+                     Height="150"
+                     IsReadOnly="True"
+                     FontFamily="Consolas"
+                     FontSize="14"/>
+        </StackPanel>
+    </Grid>
+</Window>
